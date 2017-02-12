@@ -46,8 +46,7 @@ if (window.location.href.indexOf('youtube.com') >= 0 || window.location.href.ind
             + "var skipAdsDiv = document.createElement('div');\n"
             + "skipAdsDiv.style.float = 'right';\n"
             + "skipAdsDiv.id = 'additionalElement';\n"
-            + "skipAdsDiv.innerHTML = \"<button onclick='catchUp()' class='follow-button button'>Catch Up</button>\";\n"
-            + "skipAdsDiv.innerHTML += \"<button onclick='skipAdsClick()' class='follow-button button'>Skip Ads&nbsp;&nbsp;&nbsp;<img src='https://static-cdn.jtvnw.net/emoticons/v1/25/1.0' /></button>\";\n"
+            + "skipAdsDiv.innerHTML = \"<button onclick='skipAdsClick()' class='follow-button button'>Skip Ads&nbsp;&nbsp;&nbsp;<img src='https://static-cdn.jtvnw.net/emoticons/v1/25/1.0' /></button>\";\n"
             + "skipAdsDiv.style.float = 'right';"
             + "setInterval(function() {\n"
             + "    var container = document.getElementsByClassName('card__title')[0];\n"
@@ -55,11 +54,11 @@ if (window.location.href.indexOf('youtube.com') >= 0 || window.location.href.ind
             + "        container.appendChild(skipAdsDiv);\n"
             + "    }\n"
             + "}, 2000);\n"
-            + "function catchUp() {"
-            + "    document.getElementsByTagName('video')[0].currentTime = 9999999999999;\n"
-            + "}\n"
             + "function skipAdsClick() {"
-            + "    document.getElementsByTagName('video')[1].currentTime = 9999999999999;\n"
+            + "    var videoElements = document.getElementsByTagName('video');\n"
+            + "    for (var i = 0; i < videoElements.length; i++) {\n"
+            + "        videoElements[i].currentTime = 9999999999999;\n"
+            + "    }\n"
             + "}\n";
 }
 
